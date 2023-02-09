@@ -38,32 +38,3 @@ jobs:
               "slotSetting": false
             }
           ]
-
-    steps:
-    - name: Login via Azure CLI
-      run: |
-        az login --identity --username ${{ secrets.AZURE_SELFHOST_USER_MANAGE_IDENTITY_CLIENT_ID }}
-        az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-    - name: Set Web App Settings
-      uses: Azure/appservice-settings@v1
-      with:
-        app-name: app-chakkrid-az-asse-sit-001
-        app-settings-json: |
-          [
-            {
-              "name": "TutorialDatabase__ConnectionString",
-              "value": "${{ secrets.TUTORIAL_DB_CONNECTION_STRING }}",
-              "slotSetting": false
-            },
-            {
-              "name": "TutorialDatabase__DatabaseName",
-              "value": "sit-tutorial",
-              "slotSetting": false
-            },
-            {
-              "name": "TutorialDatabase__TutorialCollectionName",
-              "value": "tutorials",
-              "slotSetting": false
-            }
-          ]
