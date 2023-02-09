@@ -61,7 +61,7 @@ jobs:
       name: dev
       url: https://app-chakkrid-az-asse-dev-001.azurewebsites.net/swagger/index.html
  
-     steps:
+    steps:
     - name: Download Artifact
       uses: actions/download-artifact@v3
       with:
